@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: API-GateWay
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: greet 
+        uri: lb://GREET-API
+        predicates: /greet
+        
+      - id: welcome
+        uri: lb://WELCOME-API
+        predicates: /welcome
+server:
+  port: 3333
